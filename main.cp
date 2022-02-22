@@ -79,7 +79,8 @@ int main(int argc, char* argv[])
         resize(rawFrame, resizedFrame, cv::Size(1920,1080));
         cvtColor(resizedFrame, grayscaleFrame, CV_RGB2GRAY);
 
-        // 모니터 해상도에 따른 크기 설정
+        // 임의의 해상도에 따른 크기를 설정하고 grayscale로 변환합니다.
+        
         Rect finalCrop(200, 0, 1680, 1050);
         Mat croppedFrame = grayscaleFrame(finalCrop);
         flip(croppedFrame, houseFrame, 1);
