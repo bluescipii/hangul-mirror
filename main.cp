@@ -48,6 +48,7 @@ int main(int argc, char* argv[])
     resize(Image4, Image4, cv::Size(squareValue,squareValue));
     resize(Image5, Image5, cv::Size(squareValue,squareValue));
   
+//     비디오를 불러옵니다
     VideoCapture cap = VideoCapture(0);
 
     if (!cap.isOpened())
@@ -68,7 +69,7 @@ int main(int argc, char* argv[])
                 return 2;
             }
 
-         // 프레임 체크
+         // 프레임을 체크합니다
      
         double fps = cap.get(CV_CAP_PROP_FPS);
         cout << "Frame per seconds : " << fps << endl;
@@ -88,11 +89,11 @@ int main(int argc, char* argv[])
             return 3;
         }
      
-        // house information
+        // 기존 프레임의 채널과 사이즈를 측정합니다
         cout << "Number of houseFrame Channel : " << houseFrame.channels() << endl;
         cout << "Pixel Size of houseFrame : " << houseFrame.elemSize() << endl;
       
-         // make whiteBackground
+         // 정사각향 형태로  픽셀의 평균값을 구합니다
 
         for ( int j = 0; j <1040 ; j=j+squareValue)
             {
@@ -133,7 +134,7 @@ int main(int argc, char* argv[])
                     }
                 }
     
-            // 결과창에 대하여
+            // 결과창을 
             namedWindow("Window_houseFrame", WINDOW_NORMAL);
             imshow("Window_houseFrame", houseFrame);
   
@@ -142,7 +143,7 @@ int main(int argc, char* argv[])
      
             cout << "--------------------------------------------------------" << endl;
   
-        // esc 누르면 꺼짐
+        // escape 합니다
         if(waitKey(30) == 1)
             {
                 cout << "esc key is pressed by user" << endl;
